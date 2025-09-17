@@ -111,6 +111,8 @@ function StandardView:use_layout(layout)
     end
 
     local pivot = api.nvim_get_current_win()
+    local scratch_buf = api.nvim_create_buf(false, true)
+    api.nvim_win_set_buf(pivot, scratch_buf)
 
     if was_open then
       self.panel:open()
